@@ -2,7 +2,7 @@ resource "kubernetes_deployment_v1" "attack" {
 
   metadata {
     name = var.deployment_name
-    namespace = kubernetes_namespace_v1.namespace.id
+    namespace = var.namespace
     labels = {
       name = var.deployment_name
     }
