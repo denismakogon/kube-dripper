@@ -40,8 +40,9 @@ module "ripper_deployment" {
   source = "./modules/v1_deployment"
   for_each = toset(var.attack_hosts)
 
-  deployment_name = "${split(",", each.value)[0]}-deployment"
-
+  deployment_name = "ripper-${indext(var.attack_hosts, each.value)}-deployment"
+  namespace = "default"
+  
   ripper_attack_host = split(",", each.value)[0]
   ripper_attack_port = split(",", each.value)[1]
   thread_count       = split(",", each.value)[2]
