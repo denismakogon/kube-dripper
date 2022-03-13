@@ -1,7 +1,3 @@
-variable "kubeconfig_path" {
-  type = string
-}
-
 variable "vcpus_per_node" {
   default = 1
   type = string
