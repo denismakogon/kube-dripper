@@ -28,7 +28,7 @@ resource "kubernetes_deployment_v1" "attack" {
       spec {
 
         container {
-          name = "${var.deployment_name}-container"
+          name = "ripper-container"
           image = var.ripper_image
 
           env {
