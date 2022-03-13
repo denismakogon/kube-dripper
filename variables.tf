@@ -1,5 +1,5 @@
 variable "namespace" {
-  default = "kube-dripper"
+  default = "default"
 }
 
 variable "number_of_replicas" {}
