@@ -1,15 +1,19 @@
-variable "vcpus_per_node" {
-  default = 1
-  type = string
-  description = "vCPUs per node"
+variable "namespace" {
+  default = "kube-dripper"
 }
-variable "memory_per_node" {
-  default = 4
-  type = string
-  description = "RAM per node"
+
+variable "number_of_replicas" {}
+
+variable "ripper_image" {
+  default = "denismakogon/dripper:latest"
 }
-variable "node_pool_size" {
-  default = 5
-  type = string
-  description = "size of a cluster"
-}
+
+variable "ripper_attack_host" {}
+
+variable "ripper_attack_port" {}
+
+variable "thread_count" {}
+
+variable "attack_method" {}
+
+variable "deployment_name" {}
