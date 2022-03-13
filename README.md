@@ -20,3 +20,13 @@ module "ripper_deployment" {
   number_of_replicas = (var.vcpus_per_node / 0.5 * var.node_pool_size) / length(var.attack_hosts)
 }
 ```
+
+`attack_hosts` is a list of comma-separated values: `<host>,<port>,<thread_count>,<attack_type>`, for instance:
+```terraform
+attack_hosts = [
+  "217.12.104.100,80,100,http",
+  "92.38.145.145,80,100,http",
+  "92.38.145.145,443,100,http",
+  "92.38.145.145,444,100,http"
+]
+```

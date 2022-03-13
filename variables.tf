@@ -13,8 +13,3 @@ variable "node_pool_size" {
   type = string
   description = "size of a cluster"
 }
-
-variable "attack_hosts" {
-  type = list(string)
-  description = "a list of comma-separated values: <host>,<port>,<thread_count>,<attack_type>"
-}
